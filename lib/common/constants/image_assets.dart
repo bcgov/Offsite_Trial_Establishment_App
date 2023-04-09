@@ -13,4 +13,5 @@ abstract class ImageAssets {
   static const remove = 'assets/images/ic_remove.svg';
   static const previousPage = 'assets/images/ic_previous_page.svg';
   static const nextPage = 'assets/images/ic_next_page.svg';
+  static const will_logo = 'assets/images/will_logo.png';
 }

@@ -80,8 +80,9 @@ class HomePage extends AppPage<HomeViewModel> {
         ),
         child: AppText(
           text: Strings.home.title(),
-          style: AppTextStyle.headline3,
+          style: AppTextStyle.headline4,
           color: context.colorScheme.onSurface,
+          textAlign: TextAlign.center,
         ),
       );
 
@@ -177,10 +178,10 @@ class HomePage extends AppPage<HomeViewModel> {
 
   Widget planting(BuildContext context) => card(
         context: context,
-        image: ImageAssets.planting,
+        image: ImageAssets.will_logo,
         text: Strings.home.planting(),
         onTap: viewModel.openPlanting,
-        isPrimary: true,
+        isPrimary: false,
       );
 
   Widget trial(BuildContext context) => card(
@@ -210,7 +211,7 @@ class HomePage extends AppPage<HomeViewModel> {
           onTap: onTap,
           child: CardContainer(
             color: isPrimary ? context.colorScheme.primary : context.colorScheme.surface,
-            center: AssetsImage(path: image),
+            center: AssetsImage(path: image, width: 100, height: 100),
             bottom: AppText(
               text: text,
               style: AppTextStyle.subtitle1,

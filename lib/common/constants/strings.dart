@@ -22,7 +22,7 @@ abstract class Strings {
 }
 
 class AppStrings {
-  String name() => Intl.message('Offsite trial establishment app');
+  String name() => Intl.message('GOM Trials');
 }
 
 class CommonStrings {
@@ -30,13 +30,13 @@ class CommonStrings {
 }
 
 class HomeStrings {
-  String title() => Intl.message('Reforestation trials');
+  String title() => Intl.message('Establish Guinness-o-metric Trial');
 
-  String planting() => Intl.message('Capture\nplanting info');
+  String planting() => Intl.message('Record\nTrial');
 
-  String trial() => Intl.message('Add\ntrial');
+  String trial() => Intl.message('Add/Edit\nTrial Info');
 
-  String planter() => Intl.message('Edit\nplanter');
+  String planter() => Intl.message('Setup\nPlanter');
 
   String successSending() => Intl.message('Trial info successfully sent.');
 

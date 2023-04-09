@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 abstract class AppTypography {
   static const _fontFamily = 'Roboto';
+  static const _fontNew = 'Times';
   static final light = TextTheme(
     headline1: TextStyle(
       fontSize: 96.sp,
@@ -29,7 +30,7 @@ abstract class AppTypography {
       fontSize: 34.sp,
       height: 1.06,
       fontWeight: FontWeight.w400,
-      fontFamily: _fontFamily,
+      fontFamily: _fontNew,
     ),
     headline5: TextStyle(
       fontSize: 24.sp,
