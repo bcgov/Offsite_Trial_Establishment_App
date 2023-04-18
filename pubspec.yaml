@@ -1,5 +1,5 @@
 name: offsite_trial_establishment_app
-description: A new Flutter project.
+description: Guinness-o-metric app for reforestation trials
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -109,7 +109,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  
+  flutter_launcher_icons:
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
@@ -140,7 +141,10 @@ dev_dependencies:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/will_logo.png"
 # The following section is specific to Flutter packages.
 flutter:
 

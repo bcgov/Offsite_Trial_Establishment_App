@@ -9,9 +9,9 @@ abstract class Database {
   static final planting = PlantingTable();
   static final picture = PictureTable();
 
-  static const host = "";   // your db host, e.g. example.com
-  static const port = 5432;   // your db port (5432 is default for PostgreSQL)
-  static const database = ""; // database name, e.g. reforestation
-  static const username = ""; // database user with access to the database above
-  static const password = ""; // user's password
+  static const host = "159.203.56.62";
+  static const port = 5432;
+  static const database = "reforest_app";
+  static const username = "postgres";
+  static const password = "BECisGOD2023";
 }
