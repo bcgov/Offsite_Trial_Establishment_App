@@ -162,11 +162,27 @@ class HomePage extends AppPage<HomeViewModel> {
       );
 
   Widget _list(BuildContext context) => Expanded(
-        child: Container(
-          constraints: BoxConstraints(minHeight: _cardMinHeight, minWidth: double.infinity),
-          child: AppScrollView(
-            scrollDirection: Axis.horizontal,
-            padding: EdgeInsets.symmetric(horizontal: AppPadding.normal.size),
+    child: Container(
+      constraints: BoxConstraints(minHeight: _cardMinHeight, minWidth: double.infinity),
+      child: AppScrollView(
+        scrollDirection: Axis.horizontal,
+        padding: EdgeInsets.symmetric(vertical: AppPadding.normal.size, horizontal: AppPadding.normal.size),
+        children: [
+          planting(context),
+          trial(context),
+          planter(context),
+        ],
+      ),
+    ),
+  );
+
+  /*Widget _list(BuildContext context) => Expanded(
+        child: SizedBox(
+          //constraints: BoxConstraints(minHeight: 115.w, minWidth: _cardWidth, maxHeight: _cardMinHeight),
+          width: 200.0,
+          height: 300.0,
+          child: Column(
+
             children: [
               planting(context),
               trial(context),
@@ -174,14 +190,15 @@ class HomePage extends AppPage<HomeViewModel> {
             ],
           ),
         ),
-      );
+      );*/
 
   Widget planting(BuildContext context) => card(
-        context: context,
-        image: ImageAssets.will_logo,
-        text: Strings.home.planting(),
-        onTap: viewModel.openPlanting,
-        isPrimary: false,
+          context: context,
+          image: ImageAssets.will_logo,
+          text: Strings.home.planting(),
+          onTap: viewModel.openPlanting,
+          width: 250,
+          isPrimary: false,
       );
 
   Widget trial(BuildContext context) => card(
@@ -189,6 +206,7 @@ class HomePage extends AppPage<HomeViewModel> {
         image: ImageAssets.trial,
         text: Strings.home.trial(),
         onTap: viewModel.openTrial,
+        width: 80
       );
 
   Widget planter(BuildContext context) => card(
@@ -196,6 +214,7 @@ class HomePage extends AppPage<HomeViewModel> {
         image: ImageAssets.planter,
         text: Strings.home.planter(),
         onTap: viewModel.openPlanter,
+        width: 80
       );
 
   Widget card({
@@ -203,23 +222,27 @@ class HomePage extends AppPage<HomeViewModel> {
     required String image,
     required String text,
     required VoidCallback onTap,
+    double width = 300.0,
     bool isPrimary = false,
   }) =>
       Padding(
         padding: EdgeInsets.symmetric(horizontal: AppPadding.extraSmall.size),
-        child: GestureDetector(
-          onTap: onTap,
-          child: CardContainer(
-            color: isPrimary ? context.colorScheme.primary : context.colorScheme.surface,
-            center: AssetsImage(path: image, width: 100, height: 100),
-            bottom: AppText(
-              text: text,
-              style: AppTextStyle.subtitle1,
-              color: isPrimary ? context.colorScheme.onPrimary : context.colorScheme.onSurface,
-              width: isPrimary ? _primaryCardWidth : _cardWidth,
-              textAlign: TextAlign.center,
+          child: SizedBox(
+            width: width,
+            child: GestureDetector(
+              onTap: onTap,
+              child: CardContainer(
+                color: isPrimary ? context.colorScheme.primary : context.colorScheme.surface,
+                center: AssetsImage(path: image, width: 100, height: 100),
+                bottom: AppText(
+                  text: text,
+                  style: AppTextStyle.subtitle1,
+                  color: isPrimary ? context.colorScheme.onPrimary : context.colorScheme.onSurface,
+                  width: isPrimary ? _primaryCardWidth : _cardWidth,
+                  textAlign: TextAlign.center,
+                ),
+              ),
             ),
           ),
-        ),
       );
 }

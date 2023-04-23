@@ -64,7 +64,7 @@ dependencies:
   flutter_screenutil: 5.5.3+2
 
   # Collection
-  collection: 1.16.0
+  collection:
 
   # Models
   freezed: 2.3.2
