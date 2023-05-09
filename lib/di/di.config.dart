@@ -55,15 +55,15 @@ import 'package:offsite_trial_establishment_app/data/services/sync/ordered_backg
 import 'package:offsite_trial_establishment_app/data/services/sync/ordered_foreground_sync_service.dart'
     as _i49;
 import 'package:offsite_trial_establishment_app/di/background_module.dart'
-    as _i51;
+    as _i53;
 import 'package:offsite_trial_establishment_app/di/connectivity_module.dart'
-    as _i52;
-import 'package:offsite_trial_establishment_app/di/db_module.dart' as _i53;
-import 'package:offsite_trial_establishment_app/di/log_module.dart' as _i54;
-import 'package:offsite_trial_establishment_app/di/notification_module.dart'
     as _i55;
+import 'package:offsite_trial_establishment_app/di/db_module.dart' as _i56;
+import 'package:offsite_trial_establishment_app/di/log_module.dart' as _i52;
+import 'package:offsite_trial_establishment_app/di/notification_module.dart'
+    as _i54;
 import 'package:offsite_trial_establishment_app/di/postgres_module.dart'
-    as _i56;
+    as _i51;
 import 'package:offsite_trial_establishment_app/domain/interactors/planter_interactor.dart'
     as _i37;
 import 'package:offsite_trial_establishment_app/domain/interactors/planting_interactor.dart'
@@ -111,15 +111,15 @@ import 'package:offsite_trial_establishment_app/ui/features/planting/create/crea
 import 'package:offsite_trial_establishment_app/ui/features/trial/create/create_trial_view_model.dart'
     as _i47;
 
+const String _prod = 'prod';
+const String _dev = 'dev';
+const String _test = 'test';
 const String _prod_refresh = 'prod_refresh';
 const String _dev_refresh = 'dev_refresh';
 const String _test_refresh = 'test_refresh';
 const String _prod_sync = 'prod_sync';
 const String _dev_sync = 'dev_sync';
 const String _test_sync = 'test_sync';
-const String _prod = 'prod';
-const String _dev = 'dev';
-const String _test = 'test';
 
 /// ignore_for_file: unnecessary_lambdas
 /// ignore_for_file: lines_longer_than_80_chars
@@ -156,6 +156,15 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i17.ObjectBoxLocalTrialRepository());
     gh.lazySingleton<_i18.LocationService>(() => _i19.DefaultLocationService());
     await gh.lazySingletonAsync<_i20.ObjectBoxManager>(
+      () => dbModule.objectBoxManager,
+      registerFor: {
+        _prod,
+        _dev,
+        _test,
+      },
+      preResolve: true,
+    );
+    await gh.lazySingletonAsync<_i20.ObjectBoxManager>(
       () => dbModule.objectBoxManagerBackground,
       registerFor: {
         _prod_refresh,
@@ -164,15 +173,6 @@ extension GetItInjectableX on _i1.GetIt {
         _prod_sync,
         _dev_sync,
         _test_sync,
-      },
-      preResolve: true,
-    );
-    await gh.lazySingletonAsync<_i20.ObjectBoxManager>(
-      () => dbModule.objectBoxManager,
-      registerFor: {
-        _prod,
-        _dev,
-        _test,
       },
       preResolve: true,
     );
@@ -208,15 +208,6 @@ extension GetItInjectableX on _i1.GetIt {
       },
     );
     gh.lazySingleton<String>(
-      () => logModule.foreground,
-      instanceName: 'log_file',
-      registerFor: {
-        _prod,
-        _dev,
-        _test,
-      },
-    );
-    gh.lazySingleton<String>(
       () => logModule.background,
       instanceName: 'log_file',
       registerFor: {
@@ -228,6 +219,15 @@ extension GetItInjectableX on _i1.GetIt {
         _test_sync,
       },
     );
+    gh.lazySingleton<String>(
+      () => logModule.foreground,
+      instanceName: 'log_file',
+      registerFor: {
+        _prod,
+        _dev,
+        _test,
+      },
+    );
     gh.lazySingleton<_i28.ValidationService>(
         () => _i29.DefaultValidationService());
     gh.lazySingleton<bool>(
@@ -237,6 +237,15 @@ extension GetItInjectableX on _i1.GetIt {
         _prod_refresh,
         _dev_refresh,
         _test_refresh,
+      },
+    );
+    gh.lazySingleton<bool>(
+      () => backgroundModule.syncIsRefresh,
+      instanceName: 'is_refresh',
+      registerFor: {
+        _prod_sync,
+        _dev_sync,
+        _test_sync,
       },
     );
     gh.lazySingleton<bool>(
@@ -267,15 +276,6 @@ extension GetItInjectableX on _i1.GetIt {
         _prod,
         _dev,
         _test,
-      },
-    );
-    gh.lazySingleton<bool>(
-      () => backgroundModule.syncIsRefresh,
-      instanceName: 'is_refresh',
-      registerFor: {
-        _prod_sync,
-        _dev_sync,
-        _test_sync,
       },
     );
     gh.lazySingleton<_i30.ConnectService>(
@@ -372,14 +372,14 @@ extension GetItInjectableX on _i1.GetIt {
   }
 }
 
-class _$BackgroundModule extends _i51.BackgroundModule {}
+class _$PostgresModule extends _i51.PostgresModule {}
 
-class _$ConnectivityModule extends _i52.ConnectivityModule {}
+class _$LogModule extends _i52.LogModule {}
 
-class _$DbModule extends _i53.DbModule {}
+class _$BackgroundModule extends _i53.BackgroundModule {}
 
-class _$LogModule extends _i54.LogModule {}
+class _$NotificationModule extends _i54.NotificationModule {}
 
-class _$NotificationModule extends _i55.NotificationModule {}
+class _$ConnectivityModule extends _i55.ConnectivityModule {}
 
-class _$PostgresModule extends _i56.PostgresModule {}
+class _$DbModule extends _i56.DbModule {}

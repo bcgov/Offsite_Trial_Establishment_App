@@ -197,8 +197,8 @@ class HomePage extends AppPage<HomeViewModel> {
           image: ImageAssets.will_logo,
           text: Strings.home.planting(),
           onTap: viewModel.openPlanting,
-          width: 250,
-          isPrimary: false,
+          width: 160.w,
+          isPrimary: true,
       );
 
   Widget trial(BuildContext context) => card(
@@ -206,7 +206,7 @@ class HomePage extends AppPage<HomeViewModel> {
         image: ImageAssets.trial,
         text: Strings.home.trial(),
         onTap: viewModel.openTrial,
-        width: 80
+        width: 100.w
       );
 
   Widget planter(BuildContext context) => card(
@@ -214,7 +214,7 @@ class HomePage extends AppPage<HomeViewModel> {
         image: ImageAssets.planter,
         text: Strings.home.planter(),
         onTap: viewModel.openPlanter,
-        width: 80
+        width: 100.w
       );
 
   Widget card({
@@ -233,7 +233,7 @@ class HomePage extends AppPage<HomeViewModel> {
               onTap: onTap,
               child: CardContainer(
                 color: isPrimary ? context.colorScheme.primary : context.colorScheme.surface,
-                center: AssetsImage(path: image, width: 100, height: 100),
+                center: AssetsImage(path: image, width: 150.w, height: 150.w),
                 bottom: AppText(
                   text: text,
                   style: AppTextStyle.subtitle1,
