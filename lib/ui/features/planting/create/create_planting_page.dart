@@ -46,7 +46,7 @@ class CreatePlantingPage extends AppPage<CreatePlantingViewModel> {
         bodyBuilder: _body,
         ignoreBottomSafeArea: true,
         title: viewModel.titleDate != null
-            ? DateFormats.dateAndTime.format(viewModel.titleDate!)
+            ? "Previous Trial: ${DateFormats.dateAndTime.format(viewModel.titleDate!)}"
             : Strings.planting.title(),
         showChangePageButtons: true,
         onNextPage: viewModel.activeNextButton ? viewModel.openNext : null,
@@ -98,6 +98,17 @@ class CreatePlantingPage extends AppPage<CreatePlantingViewModel> {
           ),
         ),
       );
+
+  // Widget get _trialNickname => Observer(
+  //   builder: (_) => AppDropdown(
+  //     selectedItem: FilteredTrial.create(viewModel.planting?.trial),
+  //     hintText: Strings.planting.trialNickname(),
+  //     items: viewModel.trials.toSet().toList(),
+  //     onSelect: (value) => viewModel.selectTrial(value?.value),
+  //     stringBuilder: (e) => e.toString(),
+  //     //helperText: Strings.common.nonMandatory(),
+  //   ),
+  // );
 
   Widget get _ownerId => Observer(
         builder: (_) => AppTextField(
@@ -354,6 +365,8 @@ class CreatePlantingPage extends AppPage<CreatePlantingViewModel> {
           validationKey: ValidationKeys.planting.seedlings.seedlot,
         ),
       );
+
+
 
   Widget get _spacing => Observer(
         builder: (_) {

@@ -101,7 +101,7 @@ class PlantingStrings {
   final site = SiteInfoStrings();
   final seedlings = SeedlingsInfoStrings();
 
-  String title() => Intl.message('Capture planting info');
+  String title() => Intl.message('New Planting Site');
 
   String button() => Intl.message('Send planting info');
 

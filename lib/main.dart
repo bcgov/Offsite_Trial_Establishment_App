@@ -65,6 +65,7 @@ class MyApp extends StatelessWidget {
       builder: (ctx, child) {
         return error.ErrorWidget(
           child: MaterialApp.router(
+            debugShowCheckedModeBanner:false,
             routerDelegate: router.delegate(initialRoutes: openPlanter ? [PlanterSetupRoute(isCreating: true)] : null),
             routeInformationParser: router.defaultRouteParser(),
             title: Strings.app.name(),

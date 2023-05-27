@@ -11,7 +11,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Offsite Trial Establishment</string>
+	<string>GOM Trials</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -31,9 +31,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>To automatically fill in the fields, you need to provide access to geolocation</string>
+	<string>To automatically fill in the fields, you need to provide access to geolocation.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>To add a photo, you must provide access to the gallery</string>
+	<string>To add a photo, you must provide access to the gallery. Photos you submit will be stored on a database for analysis and validation.</string>
 	<key>PHPhotoLibraryPreventAutomaticLimitedAccessAlert</key>
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
